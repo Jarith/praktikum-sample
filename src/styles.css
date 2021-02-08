@@ -1,0 +1,31 @@
+@import "./palette.css";
+
+@import "components/Button/styles.css";
+@import "components/ChatList/styles.css";
+@import "components/Chat/styles.css";
+@import "components/Link/styles.css";
+@import "components/DailyChat/styles.css";
+
+@import "pages/Error/styles.css";
+
+@import "pages/Auth/styles.css";
+
+@import "pages/Profile/styles.css";
+@import "pages/Profile/Edit/styles.css";
+
+@import "pages/Chat/styles.css";
+@import "pages/Chat/ChatList/styles.css";
+@import "pages/Chat/Dialog/styles.css";
+
+* {
+    box-sizing: border-box;
+}
+
+.hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}

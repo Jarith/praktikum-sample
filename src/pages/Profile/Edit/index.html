@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport"
+    />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <link href="./styles.css" rel="stylesheet" />
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <aside>
+      <div class="back-link"></div>
+    </aside>
+    <main>
+      <form class="profile">
+        <div class="profile__avatar-container">
+          <label for="{{form.avatar.name}}">
+            {% block avatar %}
+              {% set className = "profile__avatar profile__avatar--edit" %}
+              {% include "components/Avatar/avatar.html" %}
+            {% endblock %}
+          </label>
+          <input
+            class="profile__avatar-input"
+            id="{{form.avatar.name}}"
+            name="{{form.avatar.name}}"
+            type="file"
+          />
+        </div>
+        <div class="profile__field-container">
+          <label for="{{form.email.name}}">
+            {{form.email.label}}
+          </label>
+          <input
+            class="profile__field"
+            id="{{form.email.name}}"
+            name="{{form.email.name}}"
+            required
+            type="email"
+            value="{{form.email.value}}"
+          />
+        </div>
+        <div class="profile__field-container">
+          <label for="{{form.firstName.name}}">
+            {{form.firstName.label}}
+          </label>
+          <input
+            class="profile__field"
+            id="{{form.firstName.name}}"
+            name="{{form.firstName.name}}"
+            required
+            type="text"
+            value="{{form.firstName.value}}"
+          />
+        </div>
+        <div class="profile__field-container">
+          <label for="{{form.lastName.name}}">
+            {{form.lastName.label}}
+          </label>
+          <input
+            class="profile__field"
+            id="{{form.lastName.name}}"
+            name="{{form.lastName.name}}"
+            required
+            type="text"
+            value="{{form.lastName.value}}"
+          />
+        </div>
+        <div class="profile__field-container">
+          <label for="{{form.nickname.name}}">
+            {{form.nickname.label}}
+          </label>
+          <input
+            class="profile__field"
+            id="{{form.nickname.name}}"
+            name="{{form.nickname.name}}"
+            required
+            type="text"
+            value="{{form.nickname.value}}"
+          />
+        </div>
+        <div class="profile__field-container">
+          <label for="{{form.phone.name}}">
+            {{form.phone.label}}
+          </label>
+          <input
+            class="profile__field"
+            id="{{form.phone.name}}"
+            name="{{form.phone.name}}"
+            required
+            type="tel"
+            value="{{form.phone.value}}"
+          />
+        </div>
+
+        {% block button %}
+          {% set type = "submit" %}
+          {% set title = form.button.label %}
+          {% set className = "profile__button" %}
+          {% include "components/Button/button.html" %}
+        {% endblock %}
+      </form>
+    </main>
+    <script src="./js/form.js"></script>
+  </body>
+</html>

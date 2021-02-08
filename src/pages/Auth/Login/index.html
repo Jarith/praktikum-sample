@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport"
+    />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <link href="./styles.css" rel="stylesheet" />
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <main class="auth">
+      <h1 class="auth__title">{{title}}</h1>
+      <form>
+        <label class="auth__label" for="{{form.email.name}}">
+          {{form.email.label}}
+        </label>
+        <input
+          class="auth__input"
+          id="{{form.email.name}}"
+          name="{{form.email.name}}"
+          placeholder="{{form.email.placeholder}}"
+          type="email"
+        />
+        <span class="auth__validation">{{form.validation.label}}</span>
+
+        <label class="auth__label" for="{{form.password.name}}">
+          {{form.password.label}}
+        </label>
+        <input
+          id="{{form.password.name}}"
+          name="{{form.password.name}}"
+          placeholder="{{form.password.placeholder}}"
+          type="password"
+          class="auth__input"
+        />
+        <span class="auth__validation">{{form.validation.label}}</span>
+        <div>
+
+        </div>
+        {% block button %}
+          {% set className = "auth__submit-button" %}
+          {% set type = "submit" %}
+          {% set title = form.button.label %}
+          {% include "components/Button/button.html" %}
+        {% endblock %}
+
+        {% block link %}
+          {% set title = link.label %}
+          {% set href = "./registration.html" %}
+          {% include "components/Link/link.html" %}
+        {% endblock %}
+      </form>
+    </main>
+    <script src="./js/form.js"></script>
+  </body>
+</html>

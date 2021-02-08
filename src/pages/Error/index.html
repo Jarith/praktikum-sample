@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport"
+    />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <link href="./styles.css" rel="stylesheet" />
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <main class="error">
+      <h1 class="error__title">{{title}}</h1>
+      <p class="error__description">{{description}}</p>
+
+      {% block link %}
+        {% set title = link.label %}
+        {% set href = "./index.html" %}
+        {% include "components/Link/link.html" %}
+      {% endblock %}
+    </main>
+  </body>
+</html>

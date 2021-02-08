@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport"
+    />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <link href="./styles.css" rel="stylesheet" />
+    <title>{{title}}</title>
+  </head>
+  <body class="chat-container">
+    <aside>
+      {% block chatList %}
+        {% set chatList = chatList %}
+        {% include "components/ChatList/chat-list.html" %}
+      {% endblock %}
+    </aside>
+    <div class="dialog">
+      <header class="dialog__header">
+        {% block avatar %}
+          {% set className = "dialog__avatar" %}
+          {% set height = 50 %}
+          {% set width = 50 %}
+          {% include "components/Avatar/avatar.html" %}
+        {% endblock %}
+        <h1 class="dialog__title">{{chatName}}</h1>
+        {% include "pages/Chat/Dialog/components/ProfileActions/profile-actions.html" %}
+      </header>
+      <main class="daily-chat-container">
+        {% for dailyChat in dailyChats %}
+          {% block dailyChat %}
+            {% set date = dailyChat.date %}
+            {% set messages = dailyChat.messages %}
+            {% include "components/DailyChat/daily-chat.html" %}
+          {% endblock %}
+        {% endfor %}
+        <form class="send-message-container">
+          {% include "pages/Chat/Dialog/components/ChatActions/chat-actions.html" %}
+          <div class="send-message">
+            <label class="hidden" for="{{form.sendMessage.name}}">
+              Отправить сообщение
+            </label>
+            <input
+              id="{{form.sendMessage.name}}"
+              name="{{form.sendMessage.name}}"
+              type="text"
+              placeholder="Сообщение"
+              class="send-message__input"
+            />
+          </div>
+          <button class="send-message__button" type="submit"></button>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>

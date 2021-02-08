@@ -1,0 +1,45 @@
+{
+  "name": "praktikum-sample",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "lint:js": "eslint ./src/**/*.js",
+    "lint:css": "stylelint ./src/**/*.css",
+    "lint": "npm run lint:js && npm run lint:css",
+    "clean": "rimraf static",
+    "prettier": "prettier --write static",
+    "build:css": "postcss src/styles.css -d static",
+    "build:css:watch": "postcss src/styles.css -d static -w",
+    "build:templates": "node scripts/build.js",
+    "build": "npm run clean && npm run build:css && npm run build:templates && npm run prettier"
+  },
+  "engines": {
+    "node": ">= 12.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jarith/praktikum-sample.git"
+  },
+  "author": "Jarith",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jarith/praktikum-sample/issues"
+  },
+  "homepage": "https://github.com/Jarith/praktikum-sample#readme",
+  "dependencies": {
+    "express": "4.17.1"
+  },
+  "devDependencies": {
+    "nunjucks": "3.2.2",
+    "autoprefixer": "10.2.4",
+    "eslint": "7.19.0",
+    "eslint-config-prettier": "7.2.0",
+    "postcss": "8.2.4",
+    "postcss-cli": "8.3.1",
+    "postcss-import": "14.0.0",
+    "prettier": "2.2.1",
+    "rimraf": "3.0.2",
+    "stylelint": "13.9.0",
+    "stylelint-config-standard": "20.0.0"
+  }
+}
