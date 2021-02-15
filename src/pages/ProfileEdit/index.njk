@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport"
+    />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <link href="./styles.css" rel="stylesheet" />
+    <link href="../../styles.css" rel="stylesheet" />
+    <title>{{ProfileEdit.title}}</title>
+  </head>
+  <body>
+    <aside>
+      <div class="back-link"></div>
+    </aside>
+    <main>
+      <form class="profile">
+        <div class="profile__avatar-container">
+          <label for="{{ProfileEdit.form.avatar.name}}">
+            {% block avatar %}
+              {% set className = "profile__avatar profile__avatar--edit" %}
+              {% include "../../components/Avatar/avatar.njk" %}
+            {% endblock %}
+          </label>
+          <input
+            class="profile__avatar-input"
+            id="{{ProfileEdit.form.avatar.name}}"
+            name="{{ProfileEdit.form.avatar.name}}"
+            type="file"
+          />
+        </div>
+        <div class="profile__field-container">
+          <label for="{{ProfileEdit.form.email.name}}">
+            {{ProfileEdit.form.email.label}}
+          </label>
+          <input
+            class="profile__field"
+            id="{{ProfileEdit.form.email.name}}"
+            name="{{ProfileEdit.form.email.name}}"
+            required
+            type="email"
+            value="{{ProfileEdit.form.email.value}}"
+          />
+        </div>
+        <div class="profile__field-container">
+          <label for="{{ProfileEdit.form.firstName.name}}">
+            {{ProfileEdit.form.firstName.label}}
+          </label>
+          <input
+            class="profile__field"
+            id="{{ProfileEdit.form.firstName.name}}"
+            name="{{ProfileEdit.form.firstName.name}}"
+            required
+            type="text"
+            value="{{ProfileEdit.form.firstName.value}}"
+          />
+        </div>
+        <div class="profile__field-container">
+          <label for="{{ProfileEdit.form.lastName.name}}">
+            {{ProfileEdit.form.lastName.label}}
+          </label>
+          <input
+            class="profile__field"
+            id="{{ProfileEdit.form.lastName.name}}"
+            name="{{ProfileEdit.form.lastName.name}}"
+            required
+            type="text"
+            value="{{ProfileEdit.form.lastName.value}}"
+          />
+        </div>
+        <div class="profile__field-container">
+          <label for="{{ProfileEdit.form.nickname.name}}">
+            {{ProfileEdit.form.nickname.label}}
+          </label>
+          <input
+            class="profile__field"
+            id="{{ProfileEdit.form.nickname.name}}"
+            name="{{ProfileEdit.form.nickname.name}}"
+            required
+            type="text"
+            value="{{ProfileEdit.form.nickname.value}}"
+          />
+        </div>
+        <div class="profile__field-container">
+          <label for="{{ProfileEdit.form.phone.name}}">
+            {{ProfileEdit.form.phone.label}}
+          </label>
+          <input
+            class="profile__field"
+            id="{{ProfileEdit.form.phone.name}}"
+            name="{{ProfileEdit.form.phone.name}}"
+            required
+            type="tel"
+            value="{{ProfileEdit.form.phone.value}}"
+          />
+        </div>
+
+        {% block button %}
+          {% set type = "submit" %}
+          {% set title = ProfileEdit.form.button.label %}
+          {% set className = "profile__button" %}
+          {% include "../../components/Button/button.njk" %}
+        {% endblock %}
+      </form>
+    </main>
+    <script src="../../js/form.js"></script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<div class="chat-list-container">
+  <div>
+    {% block profileLink %}
+      {% set title = "Профиль >" %}
+      {% set href = "../../pages/ProfileView/index.njk" %}
+      {% set className = "chat-list-container__link" %}
+      {% include "../Link/link.njk" %}
+    {% endblock %}
+    <form>
+      <label for="search" class="hidden">Поиск</label>
+      <input
+        id="search"
+        name="search"
+        type="text"
+        placeholder="Поиск"
+        class="search"
+      />
+    </form>
+  </div>
+  <ul class="chat-list">
+    {% for chat in chatList %}
+      {% block chat %}
+        {% set title = chat.title %}
+        {% set lastMessage = chat.lastMessage %}
+        {% set me = chat.me %}
+        {% set time = chat.time %}
+        {% set unreadCount = chat.unreadCount %}
+        {% include "../Chat/chat.njk" %}
+      {% endblock %}
+    {% endfor %}
+  </ul>
+</div>

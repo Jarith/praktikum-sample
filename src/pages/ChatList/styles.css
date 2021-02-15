@@ -1,0 +1,21 @@
+@import "../../components/ChatList/styles.css";
+
+.chat-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.select-chat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.select-chat__message {
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    font-weight: 500;
+    color: var(--gray);
+}

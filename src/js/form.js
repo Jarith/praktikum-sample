@@ -13,8 +13,8 @@ const onSubmit = (e) => {
     console.log(formData);
 };
 
-(() => {
+document.addEventListener('DOMContentLoaded', () => {
     for (const form of document.forms) {
         form.addEventListener('submit', onSubmit);
     }
-})();
+});
