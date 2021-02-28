@@ -5,9 +5,7 @@
   "singleQuote": true,
   "overrides": [
     {
-      "files": [
-        "*.html"
-      ],
+      "files": ["*.html", "*.json"],
       "options": {
         "singleQuote": false,
         "tabWidth": 2

@@ -6,6 +6,15 @@
 @import "./components/DailyChat/styles.css";
 @import "./components/Link/styles.css";
 
+@import "./pages/ChatList/styles.css";
+@import "./pages/Dialog/styles.css";
+@import "./pages/ErrorPage/styles.css";
+@import "./pages/Login/styles.css";
+@import "./pages/PasswordChange/styles.css";
+@import "./pages/ProfileEdit/styles.css";
+@import "./pages/ProfileView/styles.css";
+@import "./pages/Registration/styles.css";
+
 * {
     box-sizing: border-box;
 }
