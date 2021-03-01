@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport"
+    />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <link href="./styles.css" rel="stylesheet" />
+    <link href="../../styles.css" rel="stylesheet" />
+    <title>{{ProfileView.title}}</title>
+  </head>
+  <body>
+    <aside>
+      <div class="back-link"></div>
+    </aside>
+    <main class="profile">
+      <div class="profile__avatar-container">
+        {% block avatar %}
+          {% set className = "profile__avatar" %}
+          {% include "../../components/Avatar/avatar.njk" %}
+        {% endblock %}
+        <h1 class="profile__title">{{ProfileView.mainTitle}}</h1>
+      </div>
+      <dl class="profile__container">
+        <div class="profile__field-container">
+          <dt>{{ProfileView.info.email.label}}</dt>
+          <dd class="profile__field">{{ProfileView.info.email.value}}</dd>
+        </div>
+
+        <div class="profile__field-container">
+          <dt>{{ProfileView.info.firstName.label}}</dt>
+          <dd class="profile__field">{{ProfileView.info.firstName.value}}</dd>
+        </div>
+
+        <div class="profile__field-container">
+          <dt>{{ProfileView.info.lastName.label}}</dt>
+          <dd class="profile__field">{{ProfileView.info.lastName.value}}</dd>
+        </div>
+
+        <div class="profile__field-container">
+          <dt>{{ProfileView.info.nickname.label}}</dt>
+          <dd class="profile__field">{{ProfileView.info.nickname.value}}</dd>
+        </div>
+
+        <div class="profile__field-container">
+          <dt>{{ProfileView.info.phone.label}}</dt>
+          <dd class="profile__field">{{ProfileView.info.phone.value}}</dd>
+        </div>
+      </dl>
+      <div class="profile__actions">
+        <div class="profile__field-container">
+          {% block changeDataLink %}
+            {% set title = ProfileView.actionLinks.changeData.label %}
+            {% set href = "../ProfileEdit/index.njk" %}
+            {% include "../../components/Link/link.njk" %}
+            {% endblock %}
+        </div>
+        <div class="profile__field-container">
+          {% block changePasswordLink %}
+            {% set title = ProfileView.actionLinks.changePassword.label %}
+            {% set href = "../PasswordChange/index.njk" %}
+            {% include "../../components/Link/link.njk" %}
+            {% endblock %}
+        </div>
+        <div class="profile__field-container">
+          {% block logoutLink %}
+            {% set title = ProfileView.actionLinks.logout.label %}
+            {% set href = "../../index.njk" %}
+            {% set className = "link--important" %}
+            {% include "../../components/Link/link.njk" %}
+          {% endblock %}
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

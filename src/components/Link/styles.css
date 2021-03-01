@@ -1,0 +1,13 @@
+.link {
+    display: block;
+    color: var(--primary);
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 13px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.link--important {
+    color: var(--error);
+}

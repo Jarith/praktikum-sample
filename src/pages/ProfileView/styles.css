@@ -1,0 +1,55 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 560px;
+    margin: 0 auto;
+    padding-top: 60px;
+}
+
+.profile__container {
+    width: inherit;
+}
+
+.profile__avatar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profile__avatar {
+    display: block;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.profile__title {
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.profile__field-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--lightGray);
+    padding: 5px 0;
+    font-size: 13px;
+    line-height: 13px;
+    font-weight: 500;
+}
+
+.profile__field-container:last-child {
+    border-bottom: none;
+}
+
+.profile__field {
+    color: var(--gray);
+}
+
+.profile__actions {
+    width: 100%;
+}

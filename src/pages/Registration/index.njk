@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport"
+    />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <link href="./styles.css" rel="stylesheet" />
+    <link href="../../styles.css" rel="stylesheet" />
+    <title>{{Registration.title}}</title>
+  </head>
+  <body>
+    <main class="auth">
+      <h1 class="auth__title">{{Registration.title}}</h1>
+      <form class="auth-form">
+        <label for="{{Registration.form.email.name}}" class="auth-form__label">{{form.email.label}}</label>
+        <input
+          id="{{Registration.form.email.name}}"
+          name="{{Registration.form.email.name}}"
+          placeholder="{{Registration.form.email.placeholder}}"
+          required
+          type="email"
+          class="auth-form__input"
+        />
+        <label for="{{Registration.form.firstName.name}}" class="auth-form__label">{{form.firstName.label}}</label>
+        <input
+          id="{{Registration.form.firstName.name}}"
+          name="{{Registration.form.firstName.name}}"
+          placeholder="{{Registration.form.firstName.placeholder}}"
+          required
+          type="text"
+          class="auth-form__input"
+        />
+        <label for="{{Registration.form.lastName.name}}" class="auth-form__label">{{form.lastName.label}}</label>
+        <input
+          id="{{Registration.form.lastName.name}}"
+          name="{{Registration.form.lastName.name}}"
+          placeholder="{{Registration.form.firstName.placeholder}}"
+          required
+          type="text"
+          class="auth-form__input"
+        />
+        <label for="{{Registration.form.phone.name}}" class="auth-form__label">{{form.phone.label}}</label>
+        <input
+          id="{{Registration.form.phone.name}}"
+          name="{{Registration.form.phone.name}}"
+          placeholder="{{Registration.form.phone.placeholder}}"
+          required
+          type="tel"
+          class="auth-form__input"
+        />
+        <label for="{{Registration.form.password.name}}" class="auth-form__label"> {{form.password.label}} </label>
+        <input
+          id="{{Registration.form.password.name}}"
+          name="{{Registration.form.password.name}}"
+          placeholder="{{Registration.form.password.placeholder}}"
+          required
+          type="password"
+          class="auth-form__input"
+        />
+        <label for="{{Registration.form.passwordConfirm.name}}" class="auth-form__label">
+          {{Registration.form.passwordConfirm.label}}
+        </label>
+        <input
+          id="{{Registration.form.passwordConfirm.name}}"
+          name="{{Registration.form.passwordConfirm.name}}"
+          placeholder="{{Registration.form.passwordConfirm.placeholder}}"
+          required
+          type="password"
+          class="auth-form__input"
+        />
+        {% block button %}
+          {% set className = "auth-form__submit-button" %}
+          {% set type = "submit" %}
+          {% set title = Registration.form.button %}
+          {% include "../../components/Button/button.njk" %}
+        {% endblock %}
+
+        {% block link %}
+          {% set title = Registration.link.title %}
+          {% set href = "../Login/index.njk" %}
+          {% include "../../components/Link/link.njk" %}
+        {% endblock %}
+      </form>
+    </main>
+    <script src="../../js/form.js"></script>
+  </body>
+</html>

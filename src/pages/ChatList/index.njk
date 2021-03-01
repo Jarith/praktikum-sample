@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport"
+    />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <link href="./styles.css" rel="stylesheet" />
+    <link href="../../styles.css" rel="stylesheet" />
+    <title>{{ChatList.title}}</title>
+  </head>
+  <body class="chat-container">
+    <aside>
+      {% block chatList %}
+        {% set chatList = ChatList.chatList %}
+        {% include "../../components/ChatList/chat-list.njk" %}
+      {% endblock %}
+    </aside>
+    <main class="select-chat">
+      <h1 class="select-chat__message">{{ChatList.selectChatLabel}}</h1>
+    </main>
+  </body>
+</html>
