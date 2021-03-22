@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
+    "module": "es2015",
     "moduleResolution": "node",
-    "target": "ES2019",
+    "target": "es5",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
     "rootDir": "./src",
-    "outDir": "./static",
+    "outDir": "./dist",
     "sourceMap": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,

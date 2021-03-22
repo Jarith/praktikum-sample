@@ -2,6 +2,8 @@ import { Block } from '../../core';
 import { Link, Input, Button } from '../../components';
 import { template } from './template';
 
+import './styles.css';
+
 type Props = {
     title: string;
     EmailInput: Input;
@@ -89,15 +91,12 @@ const getDeps = () => ({
     }),
 });
 
+const props = {
+    title: 'Регистрация',
+    ...getDeps(),
+};
 export class Registration extends Block<Props> {
     constructor() {
-        super({
-            title: 'Регистрация',
-            ...getDeps(),
-        });
+        super(props, template);
     }
-
-    public render = () => {
-        return super.render(template);
-    };
 }

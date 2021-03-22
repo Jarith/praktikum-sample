@@ -10,17 +10,15 @@ type Props = {
 };
 
 export class Image extends Block<Props> {
-    constructor(props: Props) {
-        super({
+    constructor(ownProps: Props) {
+        const props = {
             src: 'https://via.placeholder.com/150',
             alt: 'Image',
             height: 150,
             width: 150,
-            ...props,
-        });
-    }
+            ...ownProps,
+        } as const;
 
-    public render() {
-        return super.render(template);
+        super(props, template);
     }
 }

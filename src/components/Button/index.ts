@@ -1,6 +1,8 @@
 import { Block } from '../../core';
 import { template } from './template';
 
+import './styles.css';
+
 type Props = {
     title?: string;
     className?: string;
@@ -8,15 +10,13 @@ type Props = {
 };
 
 export class Button extends Block<Props> {
-    constructor(props: Props) {
-        super({
+    constructor(ownProps: Props) {
+        const props = {
             title: '',
             type: 'button',
-            ...props,
-        });
-    }
+            ...ownProps,
+        } as const;
 
-    public render() {
-        return super.render(template);
+        super(props, template);
     }
 }

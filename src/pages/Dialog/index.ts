@@ -12,8 +12,10 @@ import { ChatActions } from './components/ChatActions';
 import { ProfileActions } from './components/ProfileActions';
 import { template } from './template';
 
+import './styles.css';
+
 type Props = {
-    chatName: string,
+    chatName: string;
     Avatar: Image;
     ChatList: ChatList;
     DailyChats: DailyChat[];
@@ -141,15 +143,13 @@ const getDeps = () => {
     };
 };
 
+const props = {
+    chatName: 'Иван',
+    ...getDeps(),
+};
+
 export class Dialog extends Block<Props> {
     constructor() {
-        super({
-            chatName: 'Иван',
-            ...getDeps(),
-        });
+        super(props, template);
     }
-
-    public render = () => {
-        return super.render(template);
-    };
 }

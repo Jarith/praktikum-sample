@@ -2,6 +2,8 @@ import { Block } from '../../core';
 import { Image } from '..';
 import { template } from './template';
 
+import './styles.css';
+
 type OwnProps = {
     title: string;
     lastMessage: string;
@@ -23,14 +25,12 @@ const getDeps = () => ({
 });
 
 export class Chat extends Block<Props> {
-    constructor(props: OwnProps) {
-        super({
-            ...props,
+    constructor(ownProps: OwnProps) {
+        const props = {
+            ...ownProps,
             ...getDeps(),
-        });
-    }
+        } as const;
 
-    public render() {
-        return super.render(template);
+        super(props, template);
     }
 }

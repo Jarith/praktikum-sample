@@ -1,9 +1,9 @@
 import type { Block } from '../core/Block';
 
-export const renderDOM = <T extends Record<string, unknown>>(component: Block<T>, root: HTMLElement | null, tagName: string = 'div') => {
+export const renderDOM = <T extends Record<string, unknown>, C extends Block<T>>(component: C, root: HTMLElement | null, tagName: string = 'div') => {
     const container = document.createElement(tagName);
 
-    container.innerHTML = component.innerHTML;
+    container.innerHTML = component.content;
 
     root?.appendChild(container);
 

@@ -11,10 +11,6 @@ type Props = {
 
 export class DailyChatMessage extends Block<Props> {
     constructor(props: Props) {
-        super(props);
-    }
-
-    public render() {
-        return super.render(template);
+        super(props, template);
     }
 }

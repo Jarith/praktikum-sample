@@ -16,14 +16,12 @@ type Props = {
 };
 
 export class Input extends Block<Props> {
-    constructor(props: Props) {
-        super({
+    constructor(ownProps: Props) {
+        const props = {
             type: 'text',
-            ...props,
-        });
-    }
+            ...ownProps,
+        } as const;
 
-    public render() {
-        return super.render(template);
+        super(props, template);
     }
 }

@@ -4,7 +4,6 @@ export const template = `
       <form class="auth-form">
         {{EmailInput}}
         {{PasswordInput}}
-
         {{Button}}
 
         {{Link}}

@@ -2,6 +2,8 @@ import { Block } from '../../core';
 import { DailyChatMessage } from '..';
 import { template } from './template';
 
+import './styles.css';
+
 type Props = {
     date: string;
     Messages: DailyChatMessage[];
@@ -9,10 +11,6 @@ type Props = {
 
 export class DailyChat extends Block<Props> {
     constructor(props: Props) {
-        super(props);
-    }
-
-    public render() {
-        return super.render(template);
+        super(props, template);
     }
 }

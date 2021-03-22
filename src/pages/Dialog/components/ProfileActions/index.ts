@@ -3,10 +3,6 @@ import { template } from './template';
 
 export class ProfileActions extends Block<{}> {
     constructor() {
-        super({});
+        super({}, template);
     }
-
-    public render = () => {
-        return super.render(template);
-    };
 }

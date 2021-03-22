@@ -8,10 +8,6 @@ type Props = {
 
 export class Field extends Block<Props> {
     constructor(props: Props) {
-        super(props);
+        super(props, template);
     }
-
-    public render = () => {
-        return super.render(template);
-    };
 }

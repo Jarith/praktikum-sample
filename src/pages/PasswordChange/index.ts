@@ -2,6 +2,8 @@ import { Block } from '../../core';
 import { Input, Button, Image } from '../../components';
 import { template } from './template';
 
+import './styles.css';
+
 type Props = {
     title: string;
     Avatar: Image;
@@ -52,15 +54,13 @@ const getDeps = () => ({
     }),
 });
 
+const props = {
+    title: 'Изменить пароль',
+    ...getDeps(),
+};
+
 export class PasswordChange extends Block<Props> {
     constructor() {
-        super({
-            title: 'Изменить пароль',
-            ...getDeps(),
-        });
+        super(props, template);
     }
-
-    public render = () => {
-        return super.render(template);
-    };
 }

@@ -2,6 +2,8 @@ import { Block } from '../../core';
 import { Link, Input, Chat } from '..';
 import { template } from './template';
 
+import './styles.css';
+
 type OwnProps = {
     Chats: Chat[];
 };
@@ -30,14 +32,12 @@ const getDeps = () => ({
 });
 
 export class ChatList extends Block<Props> {
-    constructor(props: OwnProps) {
-        super({
-            ...props,
+    constructor(ownProps: OwnProps) {
+        const props = {
+            ...ownProps,
             ...getDeps(),
-        });
-    }
+        } as const;
 
-    public render() {
-        return super.render(template);
+        super(props, template);
     }
 }

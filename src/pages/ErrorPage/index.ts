@@ -2,6 +2,8 @@ import { Block } from '../../core';
 import { Link } from '../../components';
 import { template } from './template';
 
+import './styles.css';
+
 type OwnProps = {
     title: string;
     description: string;
@@ -19,14 +21,12 @@ const getDeps = () => ({
 });
 
 export class ErrorPage extends Block<Props> {
-    constructor(props: OwnProps) {
-        super({
-            ...props,
+    constructor(ownProps: OwnProps) {
+        const props = {
             ...getDeps(),
-        });
-    }
+            ...ownProps,
+        };
 
-    public render = () => {
-        return super.render(template);
-    };
+        super(props, template);
+    }
 }

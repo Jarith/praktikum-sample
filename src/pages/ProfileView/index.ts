@@ -3,6 +3,8 @@ import { Link, Image } from '../../components';
 import { template } from './template';
 import { Field } from './components/Field';
 
+import './styles.css';
+
 type Props = {
     title: string;
     Avatar: Image;
@@ -55,15 +57,13 @@ const getDeps = () => ({
     }),
 });
 
+const props = {
+    title: 'Профиль',
+    ...getDeps(),
+};
+
 export class ProfileView extends Block<Props> {
     constructor() {
-        super({
-            title: 'Профиль', 
-            ...getDeps(),
-        });
+        super(props, template);
     }
-
-    public render = () => {
-        return super.render(template);
-    };
 }

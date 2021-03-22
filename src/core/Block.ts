@@ -2,33 +2,35 @@ import * as nunjucks from 'nunjucks';
 import { EventBus } from './EventBus';
 import { EVENTS } from './events';
 
-const renderProp = (prop: unknown, template: string): unknown => {
+const renderProp = (prop: unknown): unknown => {
     if (Array.isArray(prop)) {
-        return prop.map((value) => renderProp(value, template));
+        return prop.map((value) => renderProp(value));
     }
 
     if (prop instanceof Block) {
-        return prop.render(template);
+        return prop.content;
     }
 
     return prop;
 };
 
 export abstract class Block<T extends Record<string, unknown>> {
-    private content: string = '';
+    public content: string = '';
     private eventBus: EventBus;
     private props: T;
+    private template: string;
 
-    protected constructor(props: T) {
+    protected constructor(props: T, template: string) {
         this.eventBus = new EventBus();
 
         this.props = this.makePropsProxy(props);
+        this.template = template;
 
         this.attachEvents(this.eventBus);
         this.eventBus.emit(EVENTS.FLOW_CDM);
     }
 
-    private attachEvents(eventBus: EventBus): void {
+    private attachEvents = (eventBus: EventBus) => {
         eventBus.on(EVENTS.FLOW_CDM, this.componentDidMountBase);
         eventBus.on(EVENTS.FLOW_CDU, this.componentDidUpdateBase);
         eventBus.on(EVENTS.FLOW_RENDER, this.render);
@@ -39,12 +41,12 @@ export abstract class Block<T extends Record<string, unknown>> {
         this.eventBus.emit(EVENTS.FLOW_RENDER);
     };
 
-    private componentDidUpdateBase(oldProps: T, newProps: T): void {
+    private componentDidUpdateBase = (oldProps: T, newProps: T) => {
         this.componentDidUpdate(oldProps, newProps);
         this.eventBus.emit(EVENTS.FLOW_RENDER);
     }
 
-    private makePropsProxy(props: T) {
+    private makePropsProxy = (props: T) => {
         return props;
     }
 
@@ -55,22 +57,26 @@ export abstract class Block<T extends Record<string, unknown>> {
     public componentDidMount: (oldProps: T) => void = () => {};
     public componentDidUpdate: (oldProps: T, newProps: T) => void = () => {};
 
-    public render(template: string) {
+    public render = () => {
+        if (!this.template) {
+            return this.content;
+        }
+        
         const props = Object.entries(this.props).reduce(
             (acc, [propName, propValue]) => {
-                acc[propName] = renderProp(propValue, template);
+                acc[propName] = renderProp(propValue);
 
                 return acc;
             },
             {} as Record<string, unknown>
         );
 
-        this.content = nunjucks.compile(template).render(props);
+        this.content = nunjucks.compile(this.template).render(props);
 
-        return this.innerHTML;
+        return this.content;
     }
 
-    public setProps(nextProps: T) {
+    public setProps = (nextProps: T) => {
         if (!nextProps) {
             return;
         }

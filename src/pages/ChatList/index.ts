@@ -2,6 +2,8 @@ import { Block } from '../../core';
 import { ChatList, Chat } from '../../components';
 import { template } from './template';
 
+import './styles.css';
+
 type Props = {
     title: string;
     ChatList: ChatList;
@@ -54,15 +56,13 @@ const getDeps = () => {
     };
 };
 
-export class ChatListPage extends Block<Props> {
-    constructor() {
-        super({
+const props = {
             title: 'Выберите чат',
             ...getDeps(),
-        });
-    }
+};
 
-    public render = () => {
-        return super.render(template);
-    };
+export class ChatListPage extends Block<Props> {
+    constructor() {
+        super(props, template);
+    }
 }
