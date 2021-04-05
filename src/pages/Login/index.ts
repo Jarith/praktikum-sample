@@ -51,6 +51,11 @@ const props = {
 };
 export class Login extends Block<Props> {
     constructor() {
-        super(props, template);
+        super(props, template(
+            props.EmailInput.content,
+            props.PasswordInput.content,
+            props.Button.content,
+            props.Link.content,
+        ));
     }
 }

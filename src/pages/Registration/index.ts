@@ -97,6 +97,15 @@ const props = {
 };
 export class Registration extends Block<Props> {
     constructor() {
-        super(props, template);
+        super(props, template(
+            props.EmailInput.content,
+            props.FirstNameInput.content,
+            props.LastNameInput.content,
+            props.PhoneInput.content,
+            props.PasswordInput.content,
+            props.PasswordConfirmInput.content,
+            props.Button.content,
+            props.Link.content
+        ));
     }
 }

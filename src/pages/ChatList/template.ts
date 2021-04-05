@@ -1,6 +1,6 @@
-export const template = `
+export const template = (ChatList: string) => `
     <aside>
-      {{ChatList}}
+      ${ChatList}
     </aside>
     <main class="select-chat">
       <h1 class="select-chat__message">{{title}}</h1>

@@ -64,6 +64,16 @@ const props = {
 
 export class ProfileView extends Block<Props> {
     constructor() {
-        super(props, template);
+        super(props, template(
+            props.Avatar.content,
+            props.EmailField.content,
+            props.FirstNameField.content,
+            props.LastNameField.content,
+            props.NicknameField.content,
+            props.PhoneField.content,
+            props.ChangeDataLink.content,
+            props.ChangePasswordLink.content,
+            props.LogoutLink.content
+        ));
     }
 }

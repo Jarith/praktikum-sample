@@ -150,6 +150,13 @@ const props = {
 
 export class Dialog extends Block<Props> {
     constructor() {
-        super(props, template);
+        super(props, template(
+            props.ChatList.content,
+            props.Avatar.content,
+            props.ProfileActions.content,
+            props.ChatActions.content,
+            props.MessageInput.content,
+            props.Button.content,
+        ));
     }
 }

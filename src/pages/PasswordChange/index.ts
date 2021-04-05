@@ -61,6 +61,12 @@ const props = {
 
 export class PasswordChange extends Block<Props> {
     constructor() {
-        super(props, template);
+        super(props, template(
+            props.Avatar.content,
+            props.OldPasswordInput.content,
+            props.NewPasswordInput.content,
+            props.PasswordConfirmInput.content,
+            props.Button.content
+        ));
     }
 }

@@ -1,13 +1,13 @@
-export const template = `
+export const template = (PhotoInput: string, FileInput: string, LocationInput: string) => `
   <div class="hidden">
     <div>
-      {{PhotoInput}}
+      ${PhotoInput}
     </div>
     <div>
-      {{FileInput}}
+      ${FileInput}
     </div>
     <div>
-      {{LocationInput}}
+      ${LocationInput}
     </div>
   </div>
 `;

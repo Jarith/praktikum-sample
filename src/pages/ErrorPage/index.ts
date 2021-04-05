@@ -27,6 +27,8 @@ export class ErrorPage extends Block<Props> {
             ...ownProps,
         };
 
-        super(props, template);
+        super(props, template(
+            props.Link.content
+        ));
     }
 }

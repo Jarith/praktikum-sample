@@ -1,8 +1,8 @@
-export const template = `
+export const template = (Link: string) => `
   <main class="error">
     <h1 class="error__title">{{title}}</h1>
     <p class="error__description">{{description}}</p>
-    {{Link}}
+    ${Link}
   </main>
 `;
 

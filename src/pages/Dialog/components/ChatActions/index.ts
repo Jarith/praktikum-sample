@@ -10,6 +10,10 @@ type Props = {
 
 export class ChatActions extends Block<Props> {
     constructor(props: Props) {
-        super(props, template);
+        super(props, template(
+            props.PhotoInput.content,
+            props.FileInput.content,
+            props.LocationInput.content
+        ));
     }
 }

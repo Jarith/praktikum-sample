@@ -57,12 +57,14 @@ const getDeps = () => {
 };
 
 const props = {
-            title: 'Выберите чат',
-            ...getDeps(),
+    title: 'Выберите чат',
+    ...getDeps(),
 };
 
 export class ChatListPage extends Block<Props> {
     constructor() {
-        super(props, template);
+        super(props, template(
+            props.ChatList.content,
+        ));
     }
 }

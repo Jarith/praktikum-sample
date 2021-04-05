@@ -1,23 +1,23 @@
-export const template = `
+export const template = (Avatar: string, OldPasswordInput: string, NewPasswordInput: string, PasswordConfirmInput: string, Button: string) => `
   <aside>
     <div class="back-link"></div>
   </aside>
   <main>
     <form class="profile">
       <div class="profile__avatar-container">
-        {{Avatar}}
+        ${Avatar}
       </div>
       <div class="profile__field-container">
-        {{OldPasswordInput}}
+        ${OldPasswordInput}
       </div>
       <div class="profile__field-container">
-        {{NewPasswordInput}}
+        ${NewPasswordInput}
       </div>
       <div class="profile__field-container">
-        {{PasswordConfirmInput}}
+        ${PasswordConfirmInput}
       </div>
 
-      {{Button}}
+      ${Button}
     </form>
   </main>
 `;

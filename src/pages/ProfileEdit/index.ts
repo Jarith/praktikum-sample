@@ -86,6 +86,14 @@ const props = {
 };
 export class ProfileEdit extends Block<Props> {
     constructor() {
-        super(props, template);
+        super(props, template(
+            props.AvatarInput.content,
+            props.EmailInput.content,
+            props.FirstNameInput.content,
+            props.LastNameInput.content,
+            props.NicknameInput.content,
+            props.PhoneInput.content,
+            props.Button.content
+        ));
     }
 }
